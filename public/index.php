@@ -17,7 +17,6 @@ $products = $product->getAllProducts();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webshop</title>
     <link rel="stylesheet" href="../public/css/pico.classless.min.css">
-
 </head>
 <body>
     <h1>Willkommen im Webshop</h1>
@@ -25,14 +24,14 @@ $products = $product->getAllProducts();
         <?php foreach ($products as $p): ?>
             <div>
                 <h2><?= htmlspecialchars($p['name']) ?></h2>
+                <img src="../public/images/<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" style="width: 20%;">
                 <p>Preis: <?= number_format($p['price'], 2) ?> €</p>
                 <p><?= htmlspecialchars($p['description']) ?></p>
                 <button style="padding: 10px 20px; font-size: 16px; width: 200px;"
-        onclick="alert('Produkt <?= $p['name'] ?> wurde hinzugefügt')">
-    Add to Cart
-</button>
+                        onclick="alert('Produkt <?= htmlspecialchars($p['name']) ?> wurde hinzugefügt')">
+                    Add to Cart
+                </button>
             </div>
-
         <?php endforeach; ?>
     </div>
 </body>
